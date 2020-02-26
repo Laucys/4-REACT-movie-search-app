@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import axios from 'axios';
+import Search from './components/Search';
 
-function App() {
+const App = () => {
+
+  const [state, setState] = useState({
+    inputValue: '',
+    results: [],
+    selected: {}
+  });
+  
+  const apiurl = 'http://www.omdbapi.com/?apikey=bd1d9a46';
+
+  const handleSearch = (e) => {
+    if (e.key === 'Enter') {
+      axios(apiurl + '&s=' + state.inputValue).then((data) => {
+        console.log(data);
+      })
+    }
+  }
+
+  const handleInput = (e) => {
+    let inputValue = e.target.value;
+
+    setState(prevState => {
+      return {...prevState, inputValue}
+    })
+
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1> Search Movie App </h1>
       </header>
+      <main>
+        <Search handleInput={handleInput} handleSearch={handleSearch}/>
+      </main>
     </div>
   );
 }
