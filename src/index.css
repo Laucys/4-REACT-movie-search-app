@@ -105,12 +105,16 @@ section {
   color: #fff;
 }
 
-.popup .content h2 {
-  font-size: 28px;
-  
+.popup .content .top {
+  display: flex;
+  justify-content: space-between;
 }
 
-.popup .content h2 span {
+.popup .content .top h2 {
+  font-size: 34px;
+}
+
+.popup .content .top h2 span {
   font-weight: 300;
   font-size: 20px;
 }
@@ -119,21 +123,22 @@ section {
   margin-bottom: 30px;
 }
 
-.popup .content .plot {
+.popup .content .description {
   display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px 30px;
+
 }
 
-.popup .content .plot img {
-  flex: 1 1 50%;
-  max-width: 300px;
-  padding: 0 15px;
+.popup .content .description .text p {
+  margin-bottom: 20px;
+  padding: 0px 25px;
+  line-height: 1.5;
 }
 
-.popup .content .plot p {
-  flex: 1 1 50%;
-  padding: 15px;
+.popup .content .description .text p span {
+  font-weight: bold;
+  color: #13b69b;
+  text-transform: uppercase;
+  margin-right: 10px;
 }
 
 .popup .content .close {
@@ -144,7 +149,7 @@ section {
 
   background-color: #13b69b;
   color: #101a1d;
-  border-radius: 8px;
+  border-radius: 2px;
   border: none;
   outline: none;
   appearance: none;

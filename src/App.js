@@ -38,8 +38,10 @@ const App = () => {
   }
 
   const openPopup = id => {
-    axios(apiurl + '&i=' +id).then(({ data }) => {
+    axios(apiurl + '&i=' + id).then(({ data }) => {
       let resultsFromApi = data;
+
+      console.log(resultsFromApi);
 
       setState(prevState => {
         return {...prevState, selected: resultsFromApi}
